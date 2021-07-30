@@ -19,7 +19,7 @@ export const SearchReducer = (state: string[] | null, action: ACTIONTYPE) => {
         return [action.payload];
       }
     case "CLEAR":
-      localStorage.setItem("search_list", JSON.stringify([]));
-      return [];
+      localStorage.setItem("search_list", JSON.stringify(null));
+      return null;
   }
 };

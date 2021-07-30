@@ -4,7 +4,7 @@ import { createContext } from "react";
 import { ACTIONTYPE, SearchReducer } from "./SearchReducer";
 
 interface SearchContextInterface {
-  searchList: string[];
+  searchList: string[] | null;
   searchListDispatch: React.Dispatch<ACTIONTYPE>;
 }
 

@@ -13,6 +13,14 @@
   }
 }
 
+.suggestions {
+  width: 261px;
+  max-height: 50vh;
+  background-color: #D1D5DB;
+  overflow-y: scroll;
+  color: black;
+}
+
 .modal {
   position: fixed;
   display: flex;
