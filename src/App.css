@@ -13,6 +13,34 @@
   }
 }
 
+.modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.modal-empty {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: brightness(50%);
+}
+
+.modal-view {
+  max-height: 80%;
+  padding: var(--padding-m) var(--padding-s);
+  background-color: white;
+  z-index: 1;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

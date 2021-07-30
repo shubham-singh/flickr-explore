@@ -35,4 +35,4 @@ export const ImagesContextProvider = ({ children }: {children: React.ReactNode})
     )
 }
 
-export const useImagesContext = () => useContext(ImagesContext);
+export const useImages = () => useContext(ImagesContext);

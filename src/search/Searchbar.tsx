@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { useImagesContext } from "../images/ImagesContext";
+import { useImages } from "../images/ImagesContext";
+import { useLoader } from "../loader/LoaderContext";
 import { search } from "../utils/server.requests";
+import { useSearch } from "./SearchContext";
 
 const Searchbar = () => {
-  const imagesContext = useImagesContext();
+  const imagesContext = useImages();
+  const searchContext = useSearch();
+  const loaderContext = useLoader();
   const [searchQuery, setSearchQuery] = useState("");
 
   const onChangeHandler = (e: any) => {
@@ -12,18 +16,20 @@ const Searchbar = () => {
 
   const handleSearch = (e: any) => {
     e.preventDefault();
-    search(searchQuery, imagesContext?.imagesDispatch);
+    search(searchQuery, imagesContext?.imagesDispatch, loaderContext?.setLoader);
+    searchContext?.searchListDispatch({type: "ADD", payload: searchQuery})
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form className="center mt-m mb-m" onSubmit={handleSearch}>
       <input
+        className="medium m-null p-xs pr-xl pl-xl"
         type="text"
         value={searchQuery}
         placeholder="Photos, people or groups"
         onChange={onChangeHandler}
       />
-      <button type="submit">Search</button>
+      <button className="medium m-null p-xs pointer" type="submit">Search</button>
     </form>
   );
 };
