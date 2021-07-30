@@ -1,5 +1,5 @@
 export const searchString = (text) => {
-    const api = process.env["API_KEY"];
+    const api = process.env.API_KEY;
     return `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&text=${text}&format=json&nojsoncallback=1`;
 }
 
