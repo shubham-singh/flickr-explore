@@ -1,10 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Images from './images/Images';
+import Navbar from './navigation/Navbar';
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
+      <Images />
     </div>
   );
 }
