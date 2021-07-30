@@ -1,1 +1,1 @@
-export const GET_RECENT = "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=da882cb7d784ac6c7783c3508d61b607&format=json&nojsoncallback=1&api_sig=1c2d24dbf34a24ee585e74e1fc866667"
+export const GET_RECENT = `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=${process.env["API_KEY"]}&format=json&nojsoncallback=1`;
