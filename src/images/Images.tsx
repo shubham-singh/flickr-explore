@@ -20,10 +20,8 @@ const Images = () => {
   window.onscroll = () => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       if (imagesContext?.images.search === null) {
-        console.log("called page: ", imagesContext.images.page)
         getRecentImages(imagesContext?.images.page, imagesContext?.imagesDispatch, loaderContext?.setLoader);
       } else {
-        console.log("search called page: ", imagesContext?.images.page)
         search(
           imagesContext?.images.page,
           imagesContext?.images.search,
