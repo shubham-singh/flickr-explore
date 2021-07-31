@@ -1,6 +1,6 @@
 # Features
 
-* Built using my own CSS Library [(Link)](https://dation.netlify.app) :heavy_check_mark:
+* Built using my own CSS Library [(Link)](https://dation.netlify.app) :smiley:
 * Responsive :heavy_check_mark:
 * Search :heavy_check_mark:
 * Preview Image :heavy_check_mark:
