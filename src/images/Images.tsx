@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Loader from "../loader/Loader";
 import { useLoader } from "../loader/LoaderContext";
-import { getRecentImages } from "../utils/server.requests";
+import { getRecentImages, search } from "../utils/server.requests";
 import { ImagesState, useImages } from "./ImagesContext";
 import ImageView from "./ImageView";
 
@@ -17,15 +17,32 @@ const Images = () => {
 
   const [modal, setModal] = useState({} as ModalState);
 
+  window.onscroll = () => {
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      if (imagesContext?.images.search === null) {
+        console.log("called page: ", imagesContext.images.page)
+        getRecentImages(imagesContext?.images.page, imagesContext?.imagesDispatch, loaderContext?.setLoader);
+      } else {
+        console.log("search called page: ", imagesContext?.images.page)
+        search(
+          imagesContext?.images.page,
+          imagesContext?.images.search,
+          imagesContext?.imagesDispatch,
+          loaderContext?.setLoader
+        );
+      }
+    }
+  }
+
   useEffect(() => {
-    getRecentImages(imagesContext?.imagesDispatch, loaderContext?.setLoader);
+    getRecentImages(imagesContext?.images.page, imagesContext?.imagesDispatch, loaderContext?.setLoader);
   }, []);
 
   const showImages = () => {
     if (loaderContext?.loader === "show") {
       return <Loader />;
     } else {
-      return imagesContext?.images.images.map((image) => {
+      return imagesContext?.images.images.map((image, index) => {
         return (
           <img
             onClick={() =>
@@ -36,7 +53,7 @@ const Images = () => {
             }
             alt="random image"
             className="pointer"
-            key={image.id}
+            key={index}
             style={{ margin: "1rem", maxWidth: "90vw" }}
             src={`https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}_w.jpg`}
           />

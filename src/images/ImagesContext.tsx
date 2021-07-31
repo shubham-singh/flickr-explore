@@ -14,7 +14,9 @@ export interface ImagesState {
 }
 
 export interface ImagesInterface {
-    images: ImagesState[]
+    images: ImagesState[],
+    page: number,
+    search: string | null
 }
 
 interface ImagesContextInterface {
@@ -26,7 +28,9 @@ const ImagesContext = createContext<ImagesContextInterface | null>(null);
 
 export const ImagesContextProvider = ({ children }: {children: React.ReactNode}) => {
     const [images, dispatch] = useReducer(ImagesReducer, {
-        images: []
+        images: [],
+        page: 1,
+        search: null
     })
     return (
         <ImagesContext.Provider value={{images, imagesDispatch: dispatch}}>

@@ -17,7 +17,10 @@ const Searchbar = () => {
 
   const handleSearch = (e: any) => {
     e.preventDefault();
+    imagesContext?.imagesDispatch({type: "RESET_PAGE"});
+    imagesContext?.imagesDispatch({type: "SET_SEARCH", payload: searchQuery});
     search(
+      1,
       searchQuery,
       imagesContext?.imagesDispatch,
       loaderContext?.setLoader
@@ -35,9 +38,6 @@ const Searchbar = () => {
         value={searchQuery}
         placeholder="Photos, people or groups"
         onFocus={() => setSuggestions("show")}
-        // onBlur={() => setSuggestions("hide")}
-        // onMouseDown={() => setSuggestions("show")}
-        // onf={() => setSuggestions("hide")}
         onChange={onChangeHandler}
       />
       <button className="medium m-null p-xs pointer" type="submit">
@@ -53,7 +53,10 @@ const Searchbar = () => {
                 key={query}
                 className="pointer"
                 onClick={() => {
+                  imagesContext?.imagesDispatch({type: "RESET_PAGE"});
+                  imagesContext?.imagesDispatch({type: "SET_SEARCH", payload: query});
                   search(
+                    1,
                     query,
                     imagesContext?.imagesDispatch,
                     loaderContext?.setLoader
