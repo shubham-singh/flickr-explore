@@ -3,7 +3,7 @@
 * Built using my own CSS Library [(Link)](https://dation.netlify.app) :heavy_check_mark:
 * Responsive :heavy_check_mark:
 * Search :heavy_check_mark:
-* Preview :heavy_check_mark:
+* Preview Image :heavy_check_mark:
 * Infinite Scroll :heavy_check_mark:
 * Suggestions :heavy_check_mark:
 * Dark Theme :heavy_check_mark:
