@@ -1,10 +1,10 @@
 # Features
 
-* Responsive
-* Search
-* Infinite Scroll
-* Suggestions
-* Dark Theme
+* Responsive :heavy_check_mark:
+* Search :heavy_check_mark:
+* Infinite Scroll :heavy_check_mark:
+* Suggestions :heavy_check_mark:
+* Dark Theme :heavy_check_mark:
 
 # Getting Started with Create React App
 
